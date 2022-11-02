@@ -4,8 +4,7 @@ const drinks = [
         id: 1,
         nombre: "Café",
         img: "./img/cafe.jpg",
-        precio: 120,
-        cantidad: 1
+        precio: 120
     },{
         id: 2,
         nombre: "Café Doble",
@@ -36,87 +35,140 @@ const drinks = [
 
 const food = [
     {
-        id: 1,
+        id: 7,
         nombre: "Tostado",
         img: "./img/tostado.jpg",
         precio: 200
     },{
-        id: 2,
+        id: 8,
         nombre: "Medialuna",
         img: "./img/medialuna.jpg",
         precio: 120
     },{
-        id: 3,
+        id: 9,
         nombre: "Medialuna rellena",
         img: "./img/medialuna-rellena.jpg",
         precio: 180
     },{
-        id: 4,
+        id: 10,
         nombre: "Batta",
         img: "./img/batta.jpg",
         precio: 220
     },{
-        id: 5,
+        id: 11,
         nombre: "Scon",
         img: "./img/scon.jpg",
         precio: 60
     },{
-        id: 6,
+        id: 12,
         nombre: "Brownie",
         img: "./img/brownie.jpg",
         precio: 150
     },{
-        id: 7,
+        id: 13,
         nombre: "Alfajores",
         img: "./img/alfajor.jpg",
         precio: 80
     },{
-        id: 8,
+        id: 14,
         nombre: "Torta: Porcion",
         img: "./img/torta-porcion.jpg",
         precio: 180
     }
 ]
 
+let carrito = [];
 const drinksMenu = document.getElementById("drinksMenu");
 const foodMenu = document.getElementById("foodMenu")
 
 //Mostrar menu de bebidas en html
-for(let drink of drinks){
-    drinksMenu.innerHTML += `
-        <div class="col-lg-3 col-md-4 col-sm-6">
-            <div class="price-item">
-                <div class="price-img">
-                    <img src="${drink.img}" alt="Image">
-                </div>
-                <div class="price-text">
-                    <h2>${drink.nombre}</h2>
-                    <h3>$${drink.precio}</h3>
-                    <button class="btn" id="beb${drink.id}"> Añadir </button>
+function showDrinks(){
+    for(let drink of drinks){
+        drinksMenu.innerHTML += `
+            <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="price-item">
+                    <div class="price-img">
+                        <img src="${drink.img}" alt="Image">
+                    </div>
+                    <div class="price-text">
+                        <h2>${drink.nombre}</h2>
+                        <h3>$${drink.precio}</h3>
+                        <button class="btn" id="btnB${drink.id}"> Añadir </button>
+                    </div>
                 </div>
             </div>
-        </div>
-    `
+        `;
+    }
+    //Evento boton agregar
+    drinks.forEach((drink) =>{
+        document.getElementById(`btnB${drink.id}`).addEventListener("click", function(){
+            agregarAlCarrito(drink);
+        });
+    })
 }
+
 //Mostrar menu de alimentos en html
-for (let eFood of food){
-    foodMenu.innerHTML+= `
-        <div class="col-lg-3 col-md-4 col-sm-6">
-            <div class="price-item">
-                <div class="price-img">
-                    <img src="${eFood.img}" alt="Image">
-                </div>
-                <div class="price-text">
-                    <h2>${eFood.nombre}</h2>
-                    <h3>$${eFood.precio}</h3>
-                    <button class="btn" id="com${eFood.id}"> Añadir </button>
+function showFood(){
+    for (let elemFood of food){
+        foodMenu.innerHTML+= `
+            <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="price-item">
+                    <div class="price-img">
+                        <img src="${elemFood.img}" alt="Image">
+                    </div>
+                    <div class="price-text">
+                        <h2>${elemFood.nombre}</h2>
+                        <h3>$${elemFood.precio}</h3>
+                        <button class="btn" id="btnC${elemFood.id}"> Añadir </button>
+                    </div>
                 </div>
             </div>
-        </div>
-    `
+        `;
+    }
+    //Evento boton agregar
+    food.forEach((elemFood) =>{
+        document.getElementById(`btnC${elemFood.id}`).addEventListener("click", function(){
+            agregarAlCarrito(elemFood);
+        });
+    })
 }
 
+showDrinks();
+showFood();
 
+
+
+//agregar funcionalidad por si el producto ya se encuentra en el carrito
+function agregarAlCarrito(producto){
+    carrito.push(producto);
+    alert(`Haz agregado ${producto.nombre} a tu pedido!`)
+    //agregar opcion de eliminar X 
+    document.getElementById("tablaBody").innerHTML += `
+        <tr>
+            <td>${producto.id}</td>
+            <td>${producto.nombre}</td>
+            <td>${producto.precio}</td>
+        </tr> 
+    `;
+    let total = carrito.reduce((acumulador, elemento)=>acumulador + elemento.precio,0);
+    document.getElementById("total").innerText = `Total: $${total} `;
+    let carritoEnLocalStorage = (clave,valor) =>{localStorage.setItem(clave,valor)};
+    carritoEnLocalStorage("carritoJson", JSON.stringify(carrito));
+    if(carritoEnLocalStorage){
+        carrito = carritoEnLocalStorage
+    }
+}
+
+//carritoEnLocalStorage = JSON.stringify(localStorage.setItem("Carrito",carrito))
+//localStorage.setItem("carrito",carritoEnLocalStorage);
+/*
+if(carritoEnLocalStorage){
+    carrito = carritoEnLocalStorage
+}
+*/
+
+
+/*
 function multiplicar (num1, num2){
     if (num2 == 0){
         alert("Por favor ingrese una cantidad mayor 0")
@@ -234,7 +286,7 @@ if (eleccion === 1) {
     alert("Gracias por visitarnos");
 } 
 
-
+*/
 
 
 

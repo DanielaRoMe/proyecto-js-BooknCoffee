@@ -1,3 +1,4 @@
+//arreglo vacio, clase constructora, pushear los objetos 
 const books = [
     {
         id: 1,
@@ -77,6 +78,7 @@ const books = [
 
 const contBooks = document.getElementById("cont-books");
 //ciclo for para mostrar en pantalla galeria de libros disponibles
+//cambiar for of por .forEach
 for(let book of books){
     contBooks.innerHTML+=`
         <div class="col-lg-4 col-md-6">
@@ -123,8 +125,10 @@ alert(mensaje);
 if(resultSearch.length == 0){
     contBooks.innerHTML = `<p> Lo sentimos, no contamos con el libro que busca </p>`
 }else {
-    /*Investigar como hacer para que me muestre solamente mi busqueda y no todos los libros + mi busqqueda*/
+    //necesitaba vaciar el innerHTML para que solo me mostrara la busqueda
+    contBooks.innerHTML = "";
     for(element of resultSearch){
+    
         contBooks.innerHTML+=`
         <div class="col-lg-4 col-md-6">
             <div class="service-item">
