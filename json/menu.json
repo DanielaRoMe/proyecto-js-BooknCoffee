@@ -1,0 +1,104 @@
+{
+    "bebidas": [
+        {
+            "id": 1,
+            "nombre": "Café",
+            "img": "./img/cafe.jpg",
+            "precio": 120,
+            "cantidad": 1
+        },
+        {
+            "id": 2,
+            "nombre": "Café Doble",
+            "img": "./img/cafe.jpg",
+            "precio": 150,
+            "cantidad": 1
+        },
+        {
+            "id": 3,
+            "nombre": "Cortado",
+            "img": "./img/cortado.jpg",
+            "precio": 160,
+            "cantidad": 1
+        },
+        {
+            "id": 4,
+            "nombre": "Capuchino",
+            "img": "./img/capuchino.jpg",
+            "precio": 180,
+            "cantidad": 1
+        },
+        {
+            "id": 5,
+            "nombre": "Té",
+            "img": "./img/te.jpg",
+            "precio": 150,
+            "cantidad": 1
+        },
+        {
+            "id": 6,
+            "nombre": "Licuados",
+            "img": "./img/licuados.jpg",
+            "precio": 200,
+            "cantidad": 1
+        }
+    ],
+    "comidas": [
+        {
+            "id": 7,
+            "nombre": "Tostado",
+            "img": "./img/tostado.jpg",
+            "precio": 200,
+            "cantidad": 1
+        },
+        {
+            "id": 8,
+            "nombre": "Medialuna",
+            "img": "./img/medialuna.jpg",
+            "precio": 120,
+            "cantidad": 1
+        },
+        {
+            "id": 9,
+            "nombre": "Medialuna rellena",
+            "img": "./img/medialuna-rellena.jpg",
+            "precio": 180,
+            "cantidad": 1
+        },
+        {
+        "id": 10,
+        "nombre": "Batta",
+        "img": "./img/batta.jpg",
+        "precio": 220,
+        "cantidad": 1
+        },
+        {
+        "id": 11,
+        "nombre": "Scon",
+        "img": "./img/scon.jpg",
+        "precio": 60,
+        "cantidad": 1
+        },
+        {
+        "id": 12,
+        "nombre": "Brownie",
+        "img": "./img/brownie.jpg",
+        "precio": 150,
+        "cantidad": 1
+        },
+        {
+        "id": 13,
+        "nombre": "Alfajores",
+        "img": "./img/alfajor.jpg",
+        "precio": 80,
+        "cantidad": 1
+        },
+        {
+        "id": 14,
+        "nombre": "Torta: Porcion",
+        "img": "./img/torta-porcion.jpg",
+        "precio": 180,
+        "cantidad": 1
+        }
+    ]
+}

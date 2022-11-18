@@ -102,9 +102,11 @@
                     <table class = "table table-striped">
                         <thead>
                             <tr>
-                                <th> ID</th>
-                                <th> Nombre</th>
-                                <th> Precio</th>
+                                <!--th> ID </th-->
+                                <th> Nombre </th>
+                                <th> Precio </th>
+                                <th> Cantidad</th>
+                                <th> Eliminar </th>
                             </tr>
                         </thead>
                         <tbody id="tablaBody">
@@ -115,7 +117,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                    <button type="button" class="btn btn-primary">Hacer pedido!</button>
+                    <button type="button" class="btn btn-primary" id="finalizarPedido">Finalizar pedido</button>
                 </div>
             </div>
         </div>
@@ -145,13 +147,13 @@
             <div class="section-header text-center">
                 <h2>Bebidas</h2>
             </div>
-            <div class="row" id="drinksMenu">
+            <div class="row" id="menuBebidas">
                 <!--HTML generado desde JS // Bebidas-->
             </div>
             <div class="section-header text-center">
                 <h2>Comidas</h2>
             </div>
-            <div class="row" id="foodMenu">
+            <div class="row" id="menuComidas">
                 <!--HTML generado desde JS // Comidas-->
             </div>
         </div>
@@ -212,7 +214,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
         crossorigin="anonymous"></script>
-
+    
     <!-- Sweet Alert -->
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
